@@ -4,7 +4,7 @@
 ##### So if you have already install all the required step up correctly, then start run this Laravel Project.
 - Pull project from git provider. https://github.com/mahehasan/calculatorbasedonemojis.git
 - Open the console and cd your project root directory
-- Run `composer install`
+- Run `composer install` Or `composer update`
 - Run `php artisan serve`
 
 ## About calculator based on emojis

@@ -1,8 +1,6 @@
-Before jump into into the tutorial ,let me clear few things first.
-
-    I am using a Windows 10 machine with Xampp Server installed.
-    You need to install Composer- It is a Dependency Manager for PHP. You have to install it in your xampp path.
-
+## Before jump into into the tutorial ,let me clear few things first.
+- I am using a Windows 10 machine with Xampp Server installed.
+- You need to install Composer- It is a Dependency Manager for PHP. You have to install it in your xampp path.
 So if you have already install all the required step up correctly, then start run this Laravel Project.
 
 - Pull project from git provider. https://github.com/mahehasan/calculatorbasedonemojis.git

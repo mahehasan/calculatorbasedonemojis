@@ -54,7 +54,7 @@
 
                             <p>Result: <span id="result"></span><br />
                             Summary: <span id="summary"></span></p>
-                            <p>Error Summary: <span id="error-summary"></span></p>
+                            <p id="con-error-summary">Error Summary: <span id="error-summary"></span></p>
                         </div>
                     </div>
                 </div>
@@ -74,8 +74,17 @@
         <script type="text/javascript">
             var accessToken='';
             $(document).ready(function(){
+                $('#con-error-summary').hide();
                 $('#submit').click( function(){
+                    $('#con-error-summary').hide();
+                    $('#error-summary').text('');
+                    $('#result').text('');
+                    $('#summary').text('');
                     var sFormName = 'form[name=calculator] ';
+                    if(($(sFormName + '#operation').val()=='divide') && ($(sFormName + '#right_operand').val()==0))
+                    {
+                        alert('Scream by 0 not allow');
+                    }
                     var oData =
                     {
                         op : $(sFormName + '#operation').val(),
@@ -95,15 +104,15 @@
                             console.log(JSON.stringify(data));
                             $('#result').text(data.calcResult);
                             $('#summary').text(data.calcSummary);
-                            $('#error-summary').text('');
+                            $('#con-error-summary').hide();
                         },
                         error: function(data){
                             console.log('got erro data from server  ..');
                             console.log(JSON.stringify(data));
+                            $('#con-error-summary').show();
                             $('#error-summary').text(JSON.stringify(data));
                             $('#result').text('');
                             $('#summary').text('');
-
                         }
                     });
                 });

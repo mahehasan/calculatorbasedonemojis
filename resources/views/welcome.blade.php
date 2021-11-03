@@ -83,7 +83,8 @@
                     var sFormName = 'form[name=calculator] ';
                     if(($(sFormName + '#operation').val()=='divide') && ($(sFormName + '#right_operand').val()==0))
                     {
-                        alert('Scream by 0 not allow');
+                        alert('Scream by 0 not allowed');
+                        return false;
                     }
                     var oData =
                     {
@@ -98,6 +99,7 @@
                         data: oData,
                         headers: {
                             'X-CSRF-Token': '{{ csrf_token() }}',
+                            "Access-Control-Allow-Origin":"*"
                         },
                         success: function (data) {
                             console.log('got data from server  ..');

@@ -12,14 +12,13 @@ class CallCalculatorController extends Controller
             'required' => 'The :attribute field is required/integer.',
         ];
         $validator = Validator::make($request->all(), [
-            'lho'=>'required|integer',
-            'rho'=>'required|integer'
+            'lho'=>'required|numeric',
+            'rho'=>'required|numeric'
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-        //dd($request->input('lho'));
         $data = $this->exec($request);
         return response()->json($data,200);
 	}
@@ -27,8 +26,8 @@ class CallCalculatorController extends Controller
     protected function exec($request)
     {
         try {
-            $lho = (int)$request->input('lho');
-            $rho = (int)$request->input('rho');
+            $lho = $request->input('lho');
+            $rho = $request->input('rho');
             $op = $request->input('op');
 
             $resultArr = array();
